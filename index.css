@@ -125,7 +125,7 @@ body {
 }
 
 .intro-container {
-  max-width: 800px;
+  max-width: 600px;
   margin: 40px auto;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.8);
@@ -583,7 +583,7 @@ img, video {
 }
 
 /* Mobile optimization */
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
   body {
     min-width: 100%;
     max-width: 100%;
@@ -593,7 +593,7 @@ img, video {
     align-items: center;
   }
   .header-logo {
-    max-width: 150px;
+    max-width: 200px;
     height: auto;
     margin: 0 auto;
   }
