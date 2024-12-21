@@ -1,48 +1,36 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const images = document.querySelectorAll(".collage-image");
-    let currentIndex = 0;
-  
-    function fadeImages() {
-      images.forEach((img, index) => {
-        img.classList.remove("active");
-        if (index === currentIndex) {
-          img.classList.add("active");
-        }
-      });
-      currentIndex = (currentIndex + 1) % images.length;
-    }
-  
-    setInterval(fadeImages, 2000); // Change image every 2 seconds
-  
-    // Wait 5 seconds after all images have been shown before restarting animation
-    setTimeout(() => {
-      setInterval(fadeImages, 2000);
-    }, 16000 + 5000);
-  });
-
-  document.addEventListener("DOMContentLoaded", function() {
-    const images = document.querySelectorAll(".collage-image");
-    let currentIndex = 0;
-
-    function fadeImages() {
-        images.forEach((img, index) => {
-            img.classList.remove("active");
-            if (index === currentIndex) {
-                img.classList.add("active");
-            }
-        });
-        currentIndex = (currentIndex + 1) % images.length;
-    }
-
-    setInterval(fadeImages, 2000); // Change image every 2 seconds
-
-    // Responsive Menu Toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const socialContainer = document.querySelector('.social-container');
-
-    menuToggle.addEventListener('click', function() {
-        socialContainer.classList.toggle('active');
-    });
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', showThankYouMessage);
 });
 
-  
+function showThankYouMessage(event) {
+    event.preventDefault();
+
+    const form = document.getElementById('contact-form');
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
+    .then(responseText => {
+        console.log('Form submission successful:', responseText);
+        document.getElementById('thank-you-modal').style.display = 'block';
+        document.getElementById('thank-you-modal').querySelector('p').innerText = responseText;
+    })
+    .catch(error => {
+        console.error('There was a problem with your form submission:', error);
+    });
+
+    return false;
+}
+
+function closeThankYouMessage() {
+    document.getElementById('thank-you-modal').style.display = 'none';
+}
