@@ -321,77 +321,87 @@ body {
 }
 
 /* Your existing CSS */
-.intro-images {
-  position: relative;
-  width: 100%;
-  height: 300px; /* Set a fixed height for the intro-images container */
-  margin: auto;
-  overflow: hidden; /* Hide any overflow */
-}
+.intro-images { 
+  position: relative; 
+  width: 100%; 
+  height: 300px; /* Set a fixed height for the intro-images container */ 
+  margin: auto; overflow: hidden; /* Hide any overflow */ 
+} 
 
-.collage, #intro-video {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
+.overlay-text { 
+  position: absolute; 
+  top: 85%; /* Center the text vertically */ 
+  left: 50%; /* Center the text horizontally */ 
+  transform: translate(-50%, -50%); /* Center the text */ 
+  color: white; /* Set the text color */ 
+  font-size: 24px; /* Set the text size */ 
+  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */ 
+  padding: 10px; /* Add some padding */ 
+  border-radius: 5px; /* Round the corners */ 
+  z-index: 2; /* Ensure the text is above the video */ 
+} 
+
+.collage, #intro-video { 
+  width: 100%; 
+  height: 100%; 
+  position: relative; 
+} 
 
 #intro-video {
-  object-fit: contain; /* Ensures the video fits within the container without stretching */
-  display: none; /* Initially hide the video */
-}
+  object-fit: contain; /* Ensures the video fits within the container without stretching */ 
+  display: block; /* Make sure the video is visible */ 
+} 
 
-.collage-image {
-  position: absolute;
-  top: 50%; /* Center the image vertically */
-  left: 50%; /* Center the image horizontally */
-  width: auto;
-  height: 100%; /* Ensure the image height fits the container */
+.collage-image { 
+  position: absolute; 
+  top: 50%; /* Center the image vertically */ 
+  left: 50%; /* Center the image horizontally */ 
+  width: auto; 
+  height: 100%; /* Ensure the image height fits the container */ 
   transform: translate(-50%, -50%); /* Center the image */
-  object-fit: contain; /* Ensures the image fits within the container without stretching */
-  opacity: 0;
-  transition: opacity 1s ease-in-out; /* Fade in and out in 1 second */
-}
+   object-fit: contain; /* Ensures the image fits within the container without stretching */ 
+   opacity: 0; 
+   transition: opacity 1s ease-in-out; /* Fade in and out in 1 second */ 
+  } 
+  
+  .collage-image.active { 
+    opacity: 1; 
+  } 
+  
 
-.collage-image.active {
-  opacity: 1;
-}
-
-/* Keyframes and animations */
-@keyframes collageFade {
-  0%, 12.5% { opacity: 1; }
-  25%, 100% { opacity: 0; }
-}
-
-.collage-image:nth-child(1) {
-  animation: collageFade 16s linear infinite;
-  animation-delay: 0s;
-}
-
-.collage-image:nth-child(2) {
-  animation: collageFade 16s linear infinite;
-  animation-delay: 2s;
-}
-
-.collage-image:nth-child(3) {
-  animation: collageFade 16s linear infinite;
-  animation-delay: 4s;
-}
-
-.collage-image:nth-child(4) {
-  animation: collageFade 16s linear infinite;
-  animation-delay: 6s;
-}
-
-.collage-image:nth-child(5) {
-  animation: collageFade 16s linear infinite;
-  animation-delay: 8s;
-}
-
-.collage-image:nth-child(6) {
-  animation: collageFade 16s linear infinite;
-  animation-delay: 10s;
-}
-
+  /* Keyframes and animations */ 
+  @keyframes collageFade { 
+    0%, 12.5% { opacity: 1; } 25%, 100% { opacity: 0; } 
+  } 
+  
+  .collage-image:nth-child(1) { 
+    animation: collageFade 16s linear infinite; 
+    animation-delay: 0s; 
+  } 
+  
+  .collage-image:nth-child(2) { 
+    animation: collageFade 16s linear infinite; 
+    animation-delay: 2s; 
+  } 
+  
+  .collage-image:nth-child(3) { 
+    animation: collageFade 16s linear infinite; 
+    animation-delay: 4s; 
+  } 
+  
+  .collage-image:nth-child(4) { 
+    animation: collageFade 16s linear infinite; 
+    animation-delay: 6s; 
+  } 
+  
+  .collage-image:nth-child(5) { 
+    animation: collageFade 16s linear infinite; 
+    animation-delay: 8s; 
+  } 
+  
+  .collage-image:nth-child(6) { 
+    animation: collageFade 16s linear infinite; 
+    animation-delay: 10s; }
 
 
 #ig-logo { 
@@ -643,3 +653,4 @@ img, video {
     width: 25px;
   }
 }
+
