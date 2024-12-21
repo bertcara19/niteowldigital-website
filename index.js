@@ -19,4 +19,30 @@ document.addEventListener("DOMContentLoaded", function() {
       setInterval(fadeImages, 2000);
     }, 16000 + 5000);
   });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll(".collage-image");
+    let currentIndex = 0;
+
+    function fadeImages() {
+        images.forEach((img, index) => {
+            img.classList.remove("active");
+            if (index === currentIndex) {
+                img.classList.add("active");
+            }
+        });
+        currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    setInterval(fadeImages, 2000); // Change image every 2 seconds
+
+    // Responsive Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const socialContainer = document.querySelector('.social-container');
+
+    menuToggle.addEventListener('click', function() {
+        socialContainer.classList.toggle('active');
+    });
+});
+
   
