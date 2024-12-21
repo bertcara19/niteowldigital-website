@@ -593,6 +593,7 @@ img, video {
   }
   .header-logo {
     max-width: 150px;
+    height: auto;
     margin: 0 auto;
   }
   .social-container {
